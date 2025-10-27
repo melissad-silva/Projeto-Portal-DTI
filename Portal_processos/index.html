@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal de Controle dos Processos - Paranaguá</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <img src="img/logo.png" alt="Logotipo da Prefeitura de Paranaguá" id="brand-logo" />
+      <div class="brand-text">
+        <h1>Portal de Controle dos Processos</h1>
+        <p class="subtitle">Prefeitura de Paranaguá — DTI</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs" role="tablist" aria-label="Abas do Portal">
+      <button role="tab" aria-selected="true" aria-controls="tab-entrada" id="tab-btn-entrada" class="tab-btn">Entrada
+        de Processos</button>
+      <button role="tab" aria-selected="false" aria-controls="tab-saida" id="tab-btn-saida" class="tab-btn">Saída de
+        Processos</button>
+    </nav>
+
+    <section id="tab-entrada" class="tab-panel" role="tabpanel" aria-labelledby="tab-btn-entrada">
+      <h2>Entrada de Processos</h2>
+      <form id="form-entrada" class="process-form" autocomplete="off">
+        <label for="entrada-numero">Número do Processo</label>
+        <input id="entrada-numero" name="numero" type="text" required placeholder="Ex: 0001/2025" />
+
+        <label for="entrada-assunto">Assunto</label>
+        <input id="entrada-assunto" name="assunto" type="text" required placeholder="Descreva o assunto" />
+
+        <label for="entrada-origem">Origem</label>
+        <!--<input id="entrada-origem" name="origem" type="text" placeholder="Setor, Nome, etc." />-->
+        <select id="entrada-origem" name="origem" required>
+          <option value="">Selecione...</option>
+          <option value="SECGOV">SECGOV</option>
+          <option value="PROGEM">PROGEM</option>
+          <option value="COGEM">COGEM</option>
+          <option value="SEMAD">SEMAD</option>
+          <option value="SEMFA">SEMFA</option>
+          <option value="SEMFISC">SEMFISC</option>
+          <option value="SEDEHAB">SEDEHAB</option>
+          <option value="SEMPLOG">SEMPLOG</option>
+          <option value="SEMEDI">SEMEDI</option>
+          <option value="SEMSA">SEMSA</option>
+          <option value="SEDEHAB">SEMDIR</option>
+          <option value="SEMSEG">SEMSEG</option>
+          <option value="SEMMADESP">SEMMADESP</option>
+          <option value="SEMUR">SEMUR</option>
+          <option value="SEMSU">SEMSU</option>
+          <option value="SETRIN">SETRIN</option>
+          <option value="SERVAL">SERVAL</option>
+          <option value="SEMOP">SEMOP</option>
+          <option value="SECULTUR">SECULTUR</option>
+          <option value="SESPOR">SESPOR</option>
+          <option value="SEMI">SEMI</option>
+          <option value="FASP">FASP</option>
+          <option value="SEMEXPORT">SEMEXPORT</option>
+          <option value="CHEFEGAB">CHEFEGAB</option>
+          <option value="CAGEPAR">CAGEPAR</option>
+        </select>
+
+        <label for="entrada-data">Data de Entrada</label>
+        <input id="entrada-data" name="data" type="date" required />
+
+        <button type="submit" class="btn primary">Registrar Entrada</button>
+      </form>
+
+      <div class="card-dti pesquisa-processos">
+        <div class="card-header-dti">
+          <i class="bi bi-search"></i>
+          <span>Pesquisar Processo</span>
+        </div>
+
+        <!--pesquisa processo-->
+
+        <div class="card-body-dti">
+          <div class="form-row-dti">
+            <div class="input-group-dti">
+              <label for="numeroPesquisa">Número do Processo</label>
+              <input type="text" id="numeroPesquisa" placeholder="Ex: 0001/2025">
+            </div>
+
+            <div class="input-group-dti">
+              <label for="anoPesquisa">Ano</label>
+              <input type="text" id="anoPesquisa" placeholder="Ex: 2025">
+            </div>
+
+            <div class="input-group-dti">
+              <label>&nbsp;</label>
+              <button id="btnPesquisar" class="btn-dti"><i class="bi bi-funnel"></i> Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-area">
+        <h3>Registros de Entrada</h3>
+        <table class="records" id="table-entrada" aria-live="polite">
+          <thead>
+            <tr>
+              <th>Nº</th>
+              <th>Assunto</th>
+              <th>Origem</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tab-saida" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-btn-saida">
+      <h2>Saída de Processos</h2>
+      <form id="form-saida" class="process-form" autocomplete="off">
+        <label for="saida-numero">Número do Processo</label>
+        <input id="saida-numero" name="numero" type="text" required placeholder="Ex: 0001/2025" />
+
+        <label for="saida-destino">Origem</label>
+        <!--<input id="" name="origem" type="text" placeholder="Nome do destinatpario / setor" />-->
+        <select id="saida-destino" name="origem" required>
+          <option value="">Selecione...</option>
+          <option value="SECGOV">SECGOV</option>
+          <option value="PROGEM">PROGEM</option>
+          <option value="COGEM">COGEM</option>
+          <option value="SEMAD">SEMAD</option>
+          <option value="SEMFA">SEMFA</option>
+          <option value="SEMFISC">SEMFISC</option>
+          <option value="SEDEHAB">SEDEHAB</option>
+          <option value="SEMPLOG">SEMPLOG</option>
+          <option value="SEMEDI">SEMEDI</option>
+          <option value="SEMSA">SEMSA</option>
+          <option value="SEDEHAB">SEMDIR</option>
+          <option value="SEMSEG">SEMSEG</option>
+          <option value="SEMMADESP">SEMMADESP</option>
+          <option value="SEMUR">SEMUR</option>
+          <option value="SEMSU">SEMSU</option>
+          <option value="SETRIN">SETRIN</option>
+          <option value="SERVAL">SERVAL</option>
+          <option value="SEMOP">SEMOP</option>
+          <option value="SECULTUR">SECULTUR</option>
+          <option value="SESPOR">SESPOR</option>
+          <option value="SEMI">SEMI</option>
+          <option value="FASP">FASP</option>
+          <option value="SEMEXPORT">SEMEXPORT</option>
+          <option value="CHEFEGAB">CHEFEGAB</option>
+          <option value="CAGEPAR">CAGEPAR</option>
+        </select>
+
+         
+        <label for="saida-assunto">Assunto</label>
+        <input id="saida-assunto" name="assunto" type="text" placeholder="Breve descrição" />
+
+        <label for="saida-data">Data de Saída</label>
+        <input id="saida-data" name="data" type="date" required />
+
+        <button type="submit" class="btn primary">Registrar Saída</button>
+      </form>
+
+
+      <div class="card-dti pesquisa-processos">
+        <div class="card-header-dti">
+          <i class="bi bi-search"></i>
+          <span>Pesquisar Processo</span>
+        </div>
+
+        <!--pesquisa processo-->
+
+        <div class="card-body-dti">
+          <div class="form-row-dti">
+            <div class="input-group-dti">
+              <label for="numeroPesquisa">Número do Processo</label>
+              <input type="text" id="numeroPesquisa" placeholder="Ex: 0001/2025">
+            </div>
+
+            <div class="input-group-dti">
+              <label for="anoPesquisa">Ano</label>
+              <input type="text" id="anoPesquisa" placeholder="Ex: 2025">
+            </div>
+
+            <div class="input-group-dti">
+              <label>&nbsp;</label>
+              <button id="btnPesquisar" class="btn-dti"><i class="bi bi-funnel"></i> Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-area">
+        <h3>Registros de Saída</h3>
+        <table class="records" id="table-saida" aria-live="polite">
+          <thead>
+            <tr>
+              <th>Nº</th>
+              <th>Destino</th>
+              <th>Assunto</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Prefeitura de Paranaguá - DTI </small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
